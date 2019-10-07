@@ -1,13 +1,16 @@
 * Config
+** Improvements
+*** TODO Add links to package headlines
+*** TODO Add emacs logo to git repo
 ** Theme
-Using the zerodark theme. It integrates well with spaceline
+Using the zerodark theme. It integrates well with spaceline.
 #+BEGIN_SRC emacs-lisp
 (use-package zerodark-theme
   :ensure t
   :init
     (load-theme 'zerodark t))
 #+END_SRC
-Set font
+Set font to consolas 11 (only decent default font for programming)
 #+BEGIN_SRC emacs-lisp
 (set-frame-font "Consolas 11" nil t)
 #+END_SRC
@@ -20,10 +23,9 @@ Disable the default start-up stuff
 (setq inhibit-startup-message t)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 #+END_SRC
-Install dashboard, set the banner image and recent projects
 ** Packages
 *** Avy
-Search in buffer using avy.
+    Search in buffer using avy. Search is bound to M-s.
 #+BEGIN_SRC emacs-lisp
   (use-package avy
     :ensure t
@@ -31,6 +33,7 @@ Search in buffer using avy.
       ("M-s" . avy-goto-char))
 #+END_SRC
 *** Spaceline
+Spaceline for an enhanced modeline.
 #+BEGIN_SRC emacs-lisp
 (use-package spaceline
   :ensure t
@@ -43,7 +46,7 @@ Search in buffer using avy.
     (spaceline-spacemacs-theme))
 #+END_SRC
 *** Dashboard
-New default startup screen
+New default startup screen. Inserts a plain emacs logo, but bigger
 #+BEGIN_SRC emacs-lisp
 (use-package dashboard
   :ensure t
@@ -67,7 +70,7 @@ Emacs git integration
 (global-set-key (kbd "C-x g") 'magit-status)
 #+END_SRC
 *** Webmode
-Major mode for editing web templates
+Major mode for editing web templates. 
 #+BEGIN_SRC emacs-lisp
 (use-package web-mode
   :ensure t
@@ -83,6 +86,8 @@ Major mode for editing web templates
   
 #+END_SRC
 *** Switch Window
+Switch window package. Pressing C-x o with more than 3 windows open will allow you to 
+jump between them rather than cycle through them.
 #+BEGIN_SRC emacs-lisp
 (use-package switch-window
   :ensure t
