@@ -1,7 +1,7 @@
+#+TITLE snore00 Emacs Config
 * Config
-** Improvements
-*** TODO Add links to package headlines
-*** TODO Add emacs logo to git repo
+** Install
+=git clone https://github.com/snore00/snore00-emacs-conf.git ~/.emacs.d/=
 ** Theme
 Using the zerodark theme. It integrates well with spaceline.
 #+BEGIN_SRC emacs-lisp
@@ -101,3 +101,6 @@ jump between them rather than cycle through them.
   :bind
     ([remap other-window] . switch-window))
 #+END_SRC
+** Improvements
+*** TODO Add links to package headlines
+*** TODO Add emacs logo to git repo
