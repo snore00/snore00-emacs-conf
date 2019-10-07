@@ -1,4 +1,4 @@
-#+TITLE snore00 Emacs Config
+#+TITLE: snore00 Emacs Config
 * Config
 ** Install
 =git clone https://github.com/snore00/snore00-emacs-conf.git ~/.emacs.d/=
