@@ -100,6 +100,20 @@ jump between them rather than cycle through them.
   :bind
     ([remap other-window] . switch-window))
 #+END_SRC
+*** Org Mode
+**** Htmlize
+Org may not ship with htmlize for some reason
+#+BEGIN_SRC emacs-lisp
+  (use-package htmlize
+    :ensure t)
+#+END_SRC
+**** Twitter Bootstrap (ox-twbs)
+#+BEGIN_SRC emacs-lisp
+  (use-package ox-twbs
+    :ensure t)
+#+END_SRC
+
+
 ** Improvements
 *** TODO Add links to package headlines
 *** TODO Add emacs logo to git repo
