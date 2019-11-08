@@ -4,10 +4,11 @@
 ** Theme
 Using the zerodark theme. It integrates well with spaceline.
 #+BEGIN_SRC emacs-lisp
-(use-package zerodark-theme
-  :ensure t
-  :init
-    (load-theme 'zerodark t))
+  (use-package zerodark-theme
+    :ensure t
+    :init
+      (load-theme 'zerodark t))
+  (global-linum-mode t)
 #+END_SRC
 Set font to consolas 11 (only decent default font for programming)
 #+BEGIN_SRC emacs-lisp
@@ -21,6 +22,10 @@ Disable the default start-up stuff
 (scroll-bar-mode -1)
 (setq inhibit-startup-message t)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+#+END_SRC
+Set iBuffer binding
+#+BEGIN_SRC emacs-lisp
+  (global-set-key (kbd "C-x C-b") 'ibuffer)
 #+END_SRC
 ** Packages
 *** Avy
@@ -113,7 +118,57 @@ Org may not ship with htmlize for some reason
     :ensure t)
 #+END_SRC
 
+*** Projectile/
+#+BEGIN_SRC emacs-lisp
+(use-package projectile
+  :ensure t
+  :config
+  (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+  (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+  (w32-register-hot-key [s-])
+  (projectile-mode +1))
+#+END_SRC
 
+*** autopep8
+#+BEGIN_SRC emacs-lisp
+  (use-package py-autopep8
+    :ensure t
+    :init
+    (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save))
+#+END_SRC
+*** ELPY
+Elpy for python development
+#+BEGIN_SRC emacs-lisp
+    (use-package elpy
+      :ensure t
+      :init
+      (elpy-enable)
+  )
+#+END_SRC
+*** Ivy
+#+BEGIN_SRC emacs-lisp
+  (use-package ivy
+    :ensure t)
+#+END_SRC
+*** Which Key
+#+BEGIN_SRC emacs-lisp
+  (use-package which-key
+    :ensure t
+    :config
+      (which-key-mode))
+#+END_SRC
+*** Swiper
+#+BEGIN_SRC emacs-lisp
+  (use-package swiper
+    :ensure t
+    :bind ("C-s" . 'swiper))
+#+END_SRC
+*** Robot Mode
+#+BEGIN_SRC emacs-lisp
+
+  (load-file "~/.emacs.d/robot-mode.el")
+  (add-to-list 'auto-mode-alist '("\\.robot\\'" . robot-mode))
+#+END_SRC
 ** Improvements
 *** TODO Add links to package headlines
 *** TODO Add emacs logo to git repo
