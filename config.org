@@ -11,7 +11,6 @@ Using the zerodark theme. It integrates well with spaceline.
 #+END_SRC
 Set font to consolas 11 (only decent default font for programming)
 #+BEGIN_SRC emacs-lisp
-(set-frame-font "Consolas 11" nil t)
 #+END_SRC
 ** Startup
 Disable the default start-up stuff
@@ -113,7 +112,25 @@ Org may not ship with htmlize for some reason
     :ensure t)
 #+END_SRC
 
-
+*** Projectile
+#+BEGIN_SRC emacs-lisp
+  (use-package projectile
+    :ensure t
+    :init
+      (projectile-mode 1))
+#+END_SRC 
+*** SLIME
+#+BEGIN_SRC emacs-lisp
+    (use-package slime
+      :ensure t
+      :config
+      (load (expand-file-name "~/quicklisp/slime-helper.el"))
+      (setq inferior-lisp-program "/usr/local/bin/sbcl"))
+  (add-hook 'slime-mode-hook
+	    (lambda ()
+	      (unless (slime-connected-p)
+		(save-excursion (slime)))))
+#+END_SRC
 ** Improvements
 *** TODO Add links to package headlines
 *** TODO Add emacs logo to git repo
